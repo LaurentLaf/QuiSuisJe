@@ -1,5 +1,7 @@
 package jeu;
 
+import utile.Personnage;
+
 public class Joueur {
 
 	// Les constantes statiques correspondant aux points du jeu
@@ -8,10 +10,22 @@ public class Joueur {
 	private static final int SCORE_INIT = 30;
 	private static final int GAIN_PARTIE = 10;
 	// Les attributs d'un joueur
-
+	private String identite = "";
+	private int score;
 	//Constructeur affectant une identité au joueur
-
+	public Joueur() {
+		this.identite = setNouvelleIdentite();
+		this.score = initScore();
+	}
+	
 	//Accesseurs, il n'y a pas besoin de mutateur car seule Joueur manipule ses attributs.
+	public String getIdentite() {
+		return identite;
+	}
+	public int getScore() {
+		return score;
+	}
+	
 
 	/**
 	 * Ajoute les points associés à une découverte de sa propre identité
@@ -20,6 +34,7 @@ public class Joueur {
 	private void gererIdTrouvee() {
 		// TODO
 	}
+
 
 	/**
 	 * Compter une tentative râtée de découverte de sa propre identité
@@ -59,5 +74,28 @@ public class Joueur {
 		// TODO
 		return rep;
 	}
+	
+	//Définition des méthodes diverses
+	/*
+	 * fonction pour définir l'identité du joueur
+	 */
+	private String setNouvelleIdentite() {
+		return Personnage.donnerPerso();
+	}
+	/*
+	 * Fonction d'initialisation du score d'un joueur
+	 */
+	private int initScore() {
+		return Joueur.SCORE_INIT;
+	}
 
+	
+	/*
+	 * Réécriture de la méthode ToString()
+	 */
+	@Override
+	public String toString() {
+		return "Joueur [identite=" + identite + ", score=" + score + "]";
+	}
+	
 }
