@@ -3,7 +3,10 @@ package jeu;
 public class Joueur {
 
 	// Les constantes statiques correspondant aux points du jeu
-
+	private static final int TROUVE_ID = 10;
+	private static final int COUT_ESSAI = 1;
+	private static final int SCORE_INIT = 30;
+	private static final int GAIN_PARTIE = 10;
 	// Les attributs d'un joueur
 
 	//Constructeur affectant une identité au joueur
