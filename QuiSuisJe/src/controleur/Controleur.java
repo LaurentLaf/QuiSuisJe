@@ -123,7 +123,8 @@ public class Controleur {
 	 * initialise la partie avec de nouveaux joueurs
 	 */
 	private void initialiserPartie(){
-		//TODO
+		joueur1 = new Joueur();
+		joueur2 = new Joueur();
 	}
 
 	/**
@@ -152,7 +153,12 @@ public class Controleur {
 	private int proposerIdentite(int choixMenuJoueurActif,	String titreJoueurActif, Joueur joueurActif){
 		int choix = -1;
 
-		//TODO
+		if (joueurActif.isIdentiteTrouve(getNom())) {
+			joueurActif.gererIdTrouvee();
+		}
+		else {
+			joueurActif.compterTentative();
+		}
 		
 		//Si le joueur actif n'a pas gagné ni perdu, la partie continue
 		if (!joueurActif.isGagnant() && ! joueurActif.isPerdant()) {
@@ -189,17 +195,21 @@ public class Controleur {
 				break;
 
 			case Controleur.LIRE_IDENTITE_J2 : // le joueur 1 est actif
-				//choix = this.lireIdentite(TODO);
+				//choix = this.lireIdentite();
+				System.out.println(joueur2.getIdentite());
 				break;
 			case Controleur.LIRE_IDENTITE_J1 : // le joueur 2 est actif 
-				//choix = this.lireIdentite(//TODO);
+				//choix = this.lireIdentite();
+				System.out.println(joueur1.getIdentite());
 				break;
 
 			case PROPOSER_IDENTITE_J1 :
-				//choix= this.proposerIdentite(//TODO);
+				//choix= this.proposerIdentite(//TO DO);
+				this.proposerIdentite(MENU_JOUEUR1, getNom(), joueur1);
 				break;
 			case PROPOSER_IDENTITE_J2 : 
-				//choix= this.proposerIdentite(//TODO);
+				//choix= this.proposerIdentite(//TO DO);
+				this.proposerIdentite(MENU_JOUEUR2, getNom(), joueur2);
 				break;
 
 			case MENU_SCORES : //Afficher Scores
@@ -208,11 +218,14 @@ public class Controleur {
 				break;
 
 			case MENU_NOUVELLE_PARTIE : //On ré-initialise les scores
-				//TODO
+				//TO DO
 				Menu.afficheMsg("nouvelle partie");
+				initialiserPartie();
 				break;
 			case MENU_NOUVEAUX_PERSONNAGES : //on change les personnages
-				//TODO
+				//TO DO
+				joueur1.setNouvelleIdentite();
+				joueur2.setNouvelleIdentite();
 				Menu.afficheMsg("nouvelles identités attribuées");
 				choix = this.getChoix(Controleur.MENU_PRINCIPAL);
 				break;
@@ -241,9 +254,11 @@ public class Controleur {
 	 * idée : Vous pouvez essayer de passer ce message par une petite fenetre (utiliser affMsgBox).
 	 */
 	private void afficherScores(){
-		//TODO
+		//TO DO
 		//menu.afficheMsg("score du joueur 1 = "+joueur1.getScore());
 		//menu.afficheMsg("score du joueur 2 = "+joueur2.getScore());
+		System.out.println("Score J1 : "+joueur1.getScore());
+		System.out.println("Score J2 : "+joueur2.getScore());
 	}
 
 

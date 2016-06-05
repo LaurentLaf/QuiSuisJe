@@ -9,9 +9,11 @@ public class Joueur {
 	private static final int COUT_ESSAI = 1;
 	private static final int SCORE_INIT = 30;
 	private static final int GAIN_PARTIE = 10;
+	private static final int PERTE_PARTIE = 0;
 	// Les attributs d'un joueur
 	private String identite = "";
 	private int score;
+	
 	//Constructeur affectant une identité au joueur
 	public Joueur() {
 		this.identite = setNouvelleIdentite();
@@ -31,16 +33,17 @@ public class Joueur {
 	 * Ajoute les points associés à une découverte de sa propre identité
 	 * et affecte une nouvelle identité au joueur
 	 */
-	private void gererIdTrouvee() {
-		// TODO
+	public void gererIdTrouvee() {
+		this.score += TROUVE_ID;
+		this.identite = setNouvelleIdentite();
 	}
 
 
 	/**
 	 * Compter une tentative râtée de découverte de sa propre identité
 	 */
-	private void compterTentative() {
-		// TODO
+	public void compterTentative() {
+		this.score -= COUT_ESSAI;
 	}
 
 	/**
@@ -51,7 +54,13 @@ public class Joueur {
 	 */
 	public boolean isIdentiteTrouve(String proposition) {
 		boolean rep=false;
-		// TODO
+		if (this.identite.equals(proposition)) {
+			gererIdTrouvee();
+			rep = true;
+		}
+		else {
+			compterTentative();
+		}
 		return rep;
 	}
 
@@ -61,7 +70,9 @@ public class Joueur {
 	 */
 	public boolean isGagnant() {
 		boolean rep=false;
-		// TODO
+		if (this.score == GAIN_PARTIE) {
+			rep = true;
+		}
 		return rep;
 	}
 
@@ -71,7 +82,9 @@ public class Joueur {
 	 */
 	public boolean isPerdant() {
 		boolean rep=true;
-		// TODO
+		if (this.score == PERTE_PARTIE) {
+			rep = true;
+		}
 		return rep;
 	}
 	
@@ -79,7 +92,7 @@ public class Joueur {
 	/*
 	 * fonction pour définir l'identité du joueur
 	 */
-	private String setNouvelleIdentite() {
+	public String setNouvelleIdentite() {
 		return Personnage.donnerPerso();
 	}
 	/*
