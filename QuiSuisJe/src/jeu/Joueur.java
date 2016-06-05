@@ -81,7 +81,7 @@ public class Joueur {
 	 * @return si le joueur a perdu ou non
 	 */
 	public boolean isPerdant() {
-		boolean rep=true;
+		boolean rep=false;
 		if (this.score == PERTE_PARTIE) {
 			rep = true;
 		}

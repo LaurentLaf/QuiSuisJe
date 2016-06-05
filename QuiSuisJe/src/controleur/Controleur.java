@@ -52,7 +52,7 @@ public class Controleur {
 				rep=MENU_NOUVEAUX_PERSONNAGES;
 				break;
 			case 3:
-				rep=MENU_NOUVELLE_PARTIE;
+				rep=0;
 				break;
 			case 4:
 				rep=MENU_SCORES;
@@ -197,6 +197,7 @@ public class Controleur {
 			case Controleur.LIRE_IDENTITE_J2 : // le joueur 1 est actif
 				//choix = this.lireIdentite();
 				System.out.println(joueur2.getIdentite());
+				choix = this.getChoix(Controleur.MENU_PRINCIPAL);
 				break;
 			case Controleur.LIRE_IDENTITE_J1 : // le joueur 2 est actif 
 				//choix = this.lireIdentite();
