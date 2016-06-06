@@ -155,6 +155,7 @@ public class Controleur {
 
 		if (joueurActif.isIdentiteTrouve(getNom())) {
 			joueurActif.gererIdTrouvee();
+			choix = this.getChoix(Controleur.MENU_PRINCIPAL);
 		}
 		else {
 			joueurActif.compterTentative();
@@ -197,11 +198,12 @@ public class Controleur {
 			case Controleur.LIRE_IDENTITE_J2 : // le joueur 1 est actif
 				//choix = this.lireIdentite();
 				System.out.println(joueur2.getIdentite());
-				choix = this.getChoix(Controleur.MENU_PRINCIPAL);
+				choix = this.getChoix(Controleur.MENU_JOUEUR1);
 				break;
 			case Controleur.LIRE_IDENTITE_J1 : // le joueur 2 est actif 
 				//choix = this.lireIdentite();
 				System.out.println(joueur1.getIdentite());
+				choix = this.getChoix(Controleur.MENU_JOUEUR2);
 				break;
 
 			case PROPOSER_IDENTITE_J1 :

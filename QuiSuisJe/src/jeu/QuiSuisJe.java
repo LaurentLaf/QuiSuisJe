@@ -6,7 +6,7 @@ public class QuiSuisJe {
 
 	public static void main(String[] args) {
 		
-		Controleur c = new Controleur();		
+		Controleur c = new Controleur();
 		c.jouer();
 		
 		// Question 3 : créer une instance de joueur et l'afficher
